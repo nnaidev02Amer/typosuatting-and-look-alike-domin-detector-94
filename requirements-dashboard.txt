@@ -1,0 +1,5 @@
+# Dashboard dependencies (Python 3.9 compatible). Install inside the project venv:
+#   pip install -r requirements-dashboard.txt
+streamlit>=1.40,<1.50
+pandas>=2.0,<2.3
+plotly>=5.20,<6.4

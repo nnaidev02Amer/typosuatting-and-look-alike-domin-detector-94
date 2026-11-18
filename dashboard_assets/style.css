@@ -1,0 +1,63 @@
+/* SOC-style dark theme layered on Streamlit's dark base */
+:root {
+  --bg: #0b1220; --panel: #111a2e; --panel-2: #16213a; --line: #1f2d4a;
+  --text: #e2e8f0; --muted: #8fa0ba; --blue: #3b82f6; --teal: #2dd4bf;
+  --amber: #f59e0b; --red: #ef4444;
+}
+html, body, [class*="css"] { font-family: "Inter", "Segoe UI", Roboto, sans-serif; }
+.block-container { padding-top: 2.2rem; padding-bottom: 3rem; max-width: 1400px; }
+#MainMenu, footer { visibility: hidden; }
+header[data-testid="stHeader"] { background: transparent; }
+
+h1 { font-size: 1.55rem !important; font-weight: 650 !important; letter-spacing: -0.01em; }
+h2, h3 { font-size: 1.05rem !important; font-weight: 600 !important; color: var(--text); }
+.page-sub { color: var(--muted); font-size: 0.9rem; margin: -0.4rem 0 1.4rem 0; }
+
+/* sidebar */
+section[data-testid="stSidebar"] { background: #0a101d; border-right: 1px solid var(--line); }
+section[data-testid="stSidebar"] .brand { font-weight: 650; font-size: 1.0rem; line-height: 1.25; }
+section[data-testid="stSidebar"] .brand-sub { color: var(--muted); font-size: 0.75rem; margin-bottom: 1.1rem; }
+section[data-testid="stSidebar"] div[role="radiogroup"] { gap: 2px; }
+section[data-testid="stSidebar"] div[role="radiogroup"] label {
+  padding: 8px 12px; border-radius: 6px; width: 100%; border: 1px solid transparent;
+}
+section[data-testid="stSidebar"] div[role="radiogroup"] label:hover { background: var(--panel); }
+section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) {
+  background: var(--panel-2); border-color: var(--line); box-shadow: inset 3px 0 0 var(--blue);
+}
+section[data-testid="stSidebar"] div[role="radiogroup"] label > div:first-child { display: none; }
+
+/* metric cards */
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; height: 100%; }
+.card .label { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.card .value { font-size: 1.65rem; font-weight: 650; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.card .value.small { font-size: 1.05rem; padding-top: 7px; word-break: break-all; }
+.card .sub { color: var(--muted); font-size: 0.75rem; margin-top: 2px; }
+.card.blue { border-top: 2px solid var(--blue); } .card.teal { border-top: 2px solid var(--teal); }
+.card.amber { border-top: 2px solid var(--amber); } .card.red { border-top: 2px solid var(--red); }
+.card.grey { border-top: 2px solid #475569; }
+
+/* panels & badges */
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
+.badge { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 0.72rem; font-weight: 600; border: 1px solid; }
+.badge.ok { color: var(--teal); border-color: #134e4a; background: #0b2a2a; }
+.badge.off { color: var(--muted); border-color: #334155; background: #131c30; }
+.badge.warn { color: var(--amber); border-color: #5b3d0a; background: #2a2008; }
+.badge.bad { color: var(--red); border-color: #5b1a1a; background: #2a1010; }
+.scanning { border-left: 3px solid var(--blue); }
+.mono { font-family: "JetBrains Mono", Consolas, monospace; }
+
+/* widgets */
+div.stButton > button[kind="primary"] { font-weight: 650; letter-spacing: 0.04em; padding: 0.55rem 1.6rem; }
+div[data-testid="stDataFrame"] { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+div[data-testid="stExpander"] { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+div[data-baseweb="input"], div[data-baseweb="select"] > div { background: #0e1729; }
+
+.spin { display: inline-block; width: 12px; height: 12px; margin-right: 8px; border: 2px solid #1f2d4a;
+  border-top-color: var(--blue); border-radius: 50%; animation: spin 1s linear infinite; vertical-align: -1px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 900px) {
+  .block-container { padding-left: 1rem; padding-right: 1rem; }
+  .card .value { font-size: 1.3rem; }
+}
